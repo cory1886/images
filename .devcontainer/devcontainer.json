@@ -4,7 +4,18 @@
         "ghcr.io/devcontainers/features/docker-in-docker:4": {},
         "ghcr.io/devcontainers/features/azure-cli:1": {}
     },
-    "postCreateCommand": "bash .devcontainer/install-android-platform-tools.sh && sudo corepack enable && corepack prepare yarn@4.9.4 --activate && npm install -g @devcontainers/cli",
+    "postCreateCommand": "bash .devcontainer/install-android-platform-tools.sh && bash .devcontainer/install-remote-desktop.sh && sudo corepack enable && corepack prepare yarn@4.9.4 --activate && npm install -g @devcontainers/cli",
+    "postStartCommand": "bash .devcontainer/start-remote-desktop.sh",
+    "forwardPorts": [
+        6080
+    ],
+    "portsAttributes": {
+        "6080": {
+            "label": "Remote desktop (noVNC)",
+            "onAutoForward": "notify",
+            "visibility": "private"
+        }
+    },
     "customizations": {
         "vscode": {
             "extensions": [
