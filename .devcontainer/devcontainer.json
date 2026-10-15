@@ -4,7 +4,7 @@
         "ghcr.io/devcontainers/features/docker-in-docker:4": {},
         "ghcr.io/devcontainers/features/azure-cli:1": {}
     },
-    "postCreateCommand": "sudo corepack enable && corepack prepare yarn@4.9.4 --activate && npm install -g @devcontainers/cli",
+    "postCreateCommand": "bash .devcontainer/install-android-platform-tools.sh && sudo corepack enable && corepack prepare yarn@4.9.4 --activate && npm install -g @devcontainers/cli",
     "customizations": {
         "vscode": {
             "extensions": [
